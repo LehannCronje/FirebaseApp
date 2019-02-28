@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    
+    <script src='https://www.gstatic.com/firebasejs/5.8.4/firebase.js'></script>
+    <script>
+        var config = {
+            apiKey: 'AIzaSyD8EICZkIJyELL5goHj7kHPVg6QV-ItPmQ',
+            authDomain: 'node-firebase-bb80a.firebaseapp.com',
+            databaseURL: 'https://node-firebase-bb80a.firebaseio.com',
+            projectId: 'node-firebase-bb80a',
+            storageBucket: 'node-firebase-bb80a.appspot.com',
+            messagingSenderId: '510772729285'
+        };
+        firebase.initializeApp(config);
+    </script>
+    <title>Voting App</title>
+</head>
+<body>
+    <h1>Voting App</h1>
+    <p>Login with Firebase</p>
+    <h3 id="google-displayName"></h3>
+    <img id="google-pic" src="" alt="">
+    <p id="google-email"></p>
+    <button id="gone" onClick={signInWIthGoogle()}>Sign in with Google</button>
+</body>
+<script src="js/firebaseAuth.js"></script>
+</html>
