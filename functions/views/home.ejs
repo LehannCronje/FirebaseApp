@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+    <script src='https://www.gstatic.com/firebasejs/5.8.4/firebase.js'></script>
+    <script>
+        var config = {
+            apiKey: 'AIzaSyD8EICZkIJyELL5goHj7kHPVg6QV-ItPmQ',
+            authDomain: 'node-firebase-bb80a.firebaseapp.com',
+            databaseURL: 'https://node-firebase-bb80a.firebaseio.com',
+            projectId: 'node-firebase-bb80a',
+            storageBucket: 'node-firebase-bb80a.appspot.com',
+            messagingSenderId: '510772729285'
+        };
+        firebase.initializeApp(config);
+    </script>
+    <title>Voting App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Voting App</h1>
+        <p>Add Resturant: <input id="addResturant"/></p>
+        <button class="btn btn-primary" onClick="{addResturant()}">Submit</button>
+
+        <div>
+            <% var keys = Object.keys(resturants) %>
+            <% keys.forEach((key)=> { %>
+                <% var allUsers %>
+                <% if(resturants[key].votes){ %>
+                    <% allUsers = Object.keys(resturants[key].votes); %>
+                <%}else{ %>
+                <%     allUsers = [];%>
+                <% } %>
+
+                <p><%= resturants[key].name %>
+                    <span><button onclick={upvote("<%= key %>")} >upvote</button></span>
+                    <span><button onclick={downvote("<%= key %>")}>downvote</button></span>
+                </p>
+                <p>vote: <%= allUsers.length %></p>
+            <% }) %>
+        </div>
+
+        <img id="google-pic" src="" alt="">
+
+        <button id="google-signin" onClick={signInWIthGoogle()}>Sign in with Google</button>
+        <button id="signout" style="display:none; visibilty:hidden;" onClick={signOut()}>Sign Out</button>
+    </div>
+</body>
+<script src="js/firebaseAuth.js"></script>
+<script src="js/firebaseVoting.js"></script>
+</html>
